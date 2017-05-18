@@ -4,6 +4,13 @@
 _monit_packages:
   - monit
 
+_monit_path_conf_dir: /etc/monit/conf.d/
+
+# Templates
+_monit.templates:
+  - src: etc/monit/monitrc.j2
+    dest: /etc/monit/monitrc
+
 # --- Paths ---
 
 _monit_lib: '/var/lib/monit'
