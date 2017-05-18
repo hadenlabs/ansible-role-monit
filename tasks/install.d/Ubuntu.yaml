@@ -3,7 +3,9 @@
 # task file for hadenlabs.monit
 
 - name: Install monit dependencies
-  apt: name={{ item }} state=present update_cache=yes
+  package:
+    name={{ item }}
+    state=present
   with_items: _monit_packages
   tags:
     - monit

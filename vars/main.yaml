@@ -1,2 +1,5 @@
 ---
 # vars file for hadenlabs.monit
+
+_monit_packages:
+  - monit
