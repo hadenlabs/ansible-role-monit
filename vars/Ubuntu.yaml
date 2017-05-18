@@ -6,4 +6,4 @@ _monit_package_dependencies:
 
 
 _monit_packages:
-  - packages
+  - monit
