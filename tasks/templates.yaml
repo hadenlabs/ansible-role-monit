@@ -1,0 +1,9 @@
+---
+# task for hadenlabs.monit
+
+- name: copy templates
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items: _monit.templates
+  when: _monit.templates is defined

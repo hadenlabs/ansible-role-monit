@@ -1,0 +1,9 @@
+---
+# vars file for hadenlabs.monit (Ubuntu specific)
+
+_monit_package_dependencies:
+  - build-essential
+
+
+_monit_packages:
+  - packages
