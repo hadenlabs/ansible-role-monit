@@ -1,0 +1,39 @@
+# Check the process at x intervals.
+set daemon {{ monit_interval }}
+{% if monit_start_delay > 0 %}
+  # Delay the first check by x seconds when enabled.
+  with start delay {{ monit_start_delay }}
+{% endif %}
+
+# Log to syslog.
+set logfile {{ _monit_logfile }} {{ monit_syslog }}
+
+# Set the location of the Monit id file which stores the unique id
+# for this instance.
+set idfile {{ _monit_idfile }}
+
+# Set the location of the Monit state file which saves monitoring states
+# on each cycle.
+set statefile {{ _monit_statefile }}
+
+# If no mail servers are available events will be queued here.
+set eventqueue
+  basedir {{ _monit_events }}
+  slots 100
+
+# Set the url for the M/Monit collector
+{% if monit_mmonit_url is defined and monit_mmonit_url %}
+set mmonit {{ monit_mmonit_url }}
+{% endif %}
+
+# Run the http server and allow localhost to view it, this is required to
+# make monit's CLI function.
+set httpd port {{ _monit_http_port }}
+  use address {{ _monit_http_bind }}
+  allow {{ _monit_http_bind }}
+# Allow additional hosts to access monit's http interface
+{% for item in monit_http_allow %}
+  allow {{ item }}
+{% endfor %}
+
+include /etc/monit/conf.d/*

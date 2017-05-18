@@ -8,14 +8,14 @@ _monit_packages:
 
 _monit_lib: '/var/lib/monit'
 _monit_run_state: '/var/run/monit'
-_monit_events: '{{ monit_lib }}/events'
+_monit_events: '{{ _monit_lib }}/events'
 _monit_base_process_run_state: '/var/run'
 
 # --- Globals ---
 
 _monit_logfile: syslog
-_monit_idfile: '{{ monit_lib }}/id'
-_monit_statefile: '{{ monit_lib }}/state'
+_monit_idfile: '{{ _monit_lib }}/id'
+_monit_statefile: '{{ _monit_lib }}/state'
 
 # --- HTTP ---
 
