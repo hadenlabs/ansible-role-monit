@@ -36,4 +36,4 @@ set httpd port {{ _monit_http_port }}
   allow {{ item }}
 {% endfor %}
 
-include /etc/monit/conf.d/*
+include "{{ _monit_path_conf_dir }}"*

@@ -5,5 +5,9 @@
   template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: 0700
   with_items: _monit.templates
   when: _monit.templates is defined
+  notify: [ 'Test monit and reload' ]

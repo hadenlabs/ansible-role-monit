@@ -1,0 +1,5 @@
+{% set monit_name_process = item.name | default(item.pid | basename | replace('.pid', '')) -%}
+check process {{ monit_name_process }} with pidfile {{ _monit_base_process_run_state }}/{{ item.pid }}
+  start program = "{{ item.start | default('/etc/init.d/' + monit_name_process + " start") }}" with timeout {{ item.timeout | default("60") }} seconds
+  stop program = "{{ item.stop | default('/etc/init.d/' + monit_name_process + " stop") }}"
+{% if item.script is defined and item.script %}{{ item.script | indent(2, true) }}{% endif %}
