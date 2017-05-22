@@ -1,25 +1,15 @@
 ---
 # task for hadenlabs.monit
 
-- name: add configs monit
-  template:
-    src: default.conf.j2
-    dest: /etc/supervisor/conf.d/{{ item.program }}.conf
-  with_items: "{{ supervisor_programs | default([]) }}"
-  when:
-    - supervisor_programs is defined
-    - disabled_program is defined and item.program != "{{ disabled_program }}"
-  notify: right-states-programs #We need to restart the program to use the new template
-
 - name: Create configs
   template: src=etc/monit/conf.d/{{ item.type | default('base') }}.conf.j2
             dest=/etc/monit/conf.d/{{ item.type | default('base') }}_{{ item.process | default(item.pid | basename | replace('.pid', '')) }}.conf
             owner=root group=root mode=0644
   with_flattened:
-    - monit_process_list
-    - monit_process_group_list
-    - monit_process_host_list
-    - monit_process_dependent_list
-  when: item.delete is undefined and not item.delete and
-        item.pid is defined and item.pid
+    - "{{ monit_process_list | default([]) }}"
+    - "{{ monit_process_group_list | default([]) }}"
+    - "{{ monit_process_host_list | default([]) }}"
+    - "{{ monit_process_dependent_list | default([]) }}"
+  when:
+    - item.delete is undefined and item.pid is defined
   notify: [ 'Test monit and reload' ]
