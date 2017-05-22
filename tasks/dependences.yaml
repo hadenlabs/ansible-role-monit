@@ -7,11 +7,12 @@
   package:
     name: "{{ item }}"
     state: present
+    update_cache: True
+  with_items:
+    - "{{ _monit_package_dependencies | default([]) }}"
   register: install_monit_package_dependencies
   when:
     - _monit_package_dependencies is defined
-  with_items:
-    - _{{ _monit_package_dependencies | default([]) }}
   tags:
     - packages
     - dependencies
