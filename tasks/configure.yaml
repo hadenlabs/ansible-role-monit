@@ -1,2 +1,15 @@
 ---
 # task for hadenlabs.monit
+
+- name: Delete unwanted configs
+  file: state=absent
+        path=/etc/monit/conf.d/{{ item.type | default('base') }}_{{ item.process | default(item.pid | basename | replace('.pid', '')) }}.conf
+  with_flattened:
+    - monit_process_list
+    - monit_process_group_list
+    - monit_process_host_list
+    - monit_process_dependent_list
+  when:
+    - item.delete is defined
+    - item.pid is defined
+  notify: [ 'Test monit and reload' ]

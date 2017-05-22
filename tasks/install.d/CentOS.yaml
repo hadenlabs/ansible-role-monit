@@ -1,13 +1,13 @@
 ---
 # tasks file for hadenlabs.monit (CentOS specific)
 
-- name: Ensure apt cache is up to date
-  yum:
-    update_cache: yes
-
-
 - name: Install monit dependencies
-  yum: name={{ item }} state=present update_cache=yes
-  with_items: _monit_packages
+  package:
+    name: "{{ item }}"
+    state: present
+    update_cache: True
+  with_items: "{{ _monit_packages | default([]) }}"
+  when:
+    - _monit_packages is defined
   tags:
     - monit

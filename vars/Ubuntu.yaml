@@ -1,9 +1,33 @@
 ---
 # vars file for hadenlabs.monit (Ubuntu specific)
 
+_monit_packages:
+  - monit
+
 _monit_package_dependencies:
   - build-essential
 
+_monit_path_conf_dir: /etc/monit/conf.d/
 
-_monit_packages:
-  - packages
+# Templates
+_monit_templates:
+  - src: etc/monit/monitrc.j2
+    dest: /etc/monit/monitrc
+
+# --- Paths ---
+
+_monit_lib: '/var/lib/monit'
+_monit_run_state: '/var/run/monit'
+_monit_events: '{{ _monit_lib }}/events'
+_monit_base_process_run_state: '/var/run'
+
+# --- Globals ---
+
+_monit_logfile: syslog
+_monit_idfile: '{{ _monit_lib }}/id'
+_monit_statefile: '{{ _monit_lib }}/state'
+
+# --- HTTP ---
+
+_monit_http_bind: 'localhost'
+_monit_http_port: 2812

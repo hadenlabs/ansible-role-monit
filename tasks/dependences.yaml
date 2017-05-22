@@ -2,26 +2,17 @@
 
 # task file for hadenlabs.monit
 
-- name: Update package repositories
-  sudo: yes
-  apt:
-    update_cache: True
-  when:
-    - ansible_os_family == "Debian"
-  tags:
-    - apt
-    - update_cache
-
 - name: Install monit package dependencies
   become: yes
   package:
     name: "{{ item }}"
     state: present
+    update_cache: True
+  with_items:
+    - "{{ _monit_package_dependencies | default([]) }}"
   register: install_monit_package_dependencies
   when:
     - _monit_package_dependencies is defined
-  with_items:
-    - _{{ cookiecutter.short_role_name_package_dependencies }} | default([]) }}
   tags:
     - packages
     - dependencies
