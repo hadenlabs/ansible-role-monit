@@ -5,9 +5,14 @@ _monit_packages:
   - monit
 
 _monit_package_dependencies:
+  - python-pip
   - build-essential
 
 _monit_path_conf_dir: /etc/monit/conf.d/
+
+_monit_pip_dependencies:
+  - name: requests
+    version: 2.2.1
 
 # Templates
 _monit_templates:

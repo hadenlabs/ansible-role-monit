@@ -2,7 +2,7 @@
 # task for hadenlabs.monit
 
 - name: Create configs
-  template: src=etc/monit/conf.d/{{ item.type | default('base') }}.conf.j2
+  template: src=etc/monit/conf.d/{{ default('base') }}.conf.j2
             dest=/etc/monit/conf.d/{{ item.type | default('base') }}_{{ item.process | default(item.pid | basename | replace('.pid', '')) }}.conf
             owner=root group=root mode=0644
   with_flattened:
@@ -11,5 +11,21 @@
     - "{{ monit_process_host_list | default([]) }}"
     - "{{ monit_process_dependent_list | default([]) }}"
   when:
-    - item.delete is undefined and item.pid is defined
+    - item.delete is undefined
+    - item.pid is defined
+  notify: [ 'Test monit and reload' ]
+
+- name: Create configs whitout pid
+  template: src=etc/monit/conf.d/{{ default('base') }}.conf.j2
+            dest=/etc/monit/conf.d/{{ item.type | default('base') }}_{{ item.process }}.conf
+            owner=root group=root mode=0644
+  with_flattened:
+    - "{{ monit_process_list | default([]) }}"
+    - "{{ monit_process_group_list | default([]) }}"
+    - "{{ monit_process_host_list | default([]) }}"
+    - "{{ monit_process_dependent_list | default([]) }}"
+  when:
+    - item.delete is undefined
+    - item.pid is undefined
+    - item.type is defined
   notify: [ 'Test monit and reload' ]

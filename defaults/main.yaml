@@ -55,3 +55,10 @@ monit_http_allow: []
 #monit_http_allow:
   #- user:password
   #- example.com
+
+# slack
+monit_slack_token: ''
+monit_slack_username: monit
+monit_slack_channel: monit
+
+monit_path_slack: /usr/local/bin/slack.sh

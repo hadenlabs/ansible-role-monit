@@ -13,3 +13,11 @@
     - item.delete is defined
     - item.pid is defined
   notify: [ 'Test monit and reload' ]
+
+- name: Add script slack
+  template:
+    src: slack.sh.j2
+    dest: "{{ monit_path_slack }}"
+    owner: root
+    group: root
+    mode: 0700

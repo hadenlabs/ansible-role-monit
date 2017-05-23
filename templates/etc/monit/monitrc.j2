@@ -36,4 +36,4 @@ set httpd port {{ _monit_http_port }}
   allow {{ item }}
 {% endfor %}
 
-include "{{ _monit_path_conf_dir }}"*
+include {{ _monit_path_conf_dir }}*
