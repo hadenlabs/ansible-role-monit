@@ -1,0 +1,18 @@
+---
+
+# task file for hadenlabs.monit
+
+- name: Install monit package dependencies
+  become: yes
+  package:
+    name: "{{ item }}"
+    state: present
+    update_cache: True
+  with_items:
+    - "{{ _monit_package_dependencies | default([]) }}"
+  register: install_monit_package_dependencies
+  when:
+    - _monit_package_dependencies is defined
+  tags:
+    - packages
+    - dependencies

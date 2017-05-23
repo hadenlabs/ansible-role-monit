@@ -1,0 +1,12 @@
+---
+# environment file for hadenlabs.monit
+
+- name: Create files monit
+  become: true
+  file:
+    path: "{{ item.path }}"
+    state: "{{ item.state }}"
+    owner: "{{ item.owner }}"
+  with_items: "{{ _monit_create_files | default({}) }}"
+  when:
+    - _monit_create_files is defined

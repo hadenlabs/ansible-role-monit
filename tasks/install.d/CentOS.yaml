@@ -1,0 +1,13 @@
+---
+# tasks file for hadenlabs.monit (CentOS specific)
+
+- name: Install monit dependencies
+  package:
+    name: "{{ item }}"
+    state: present
+    update_cache: True
+  with_items: "{{ _monit_packages | default([]) }}"
+  when:
+    - _monit_packages is defined
+  tags:
+    - monit
