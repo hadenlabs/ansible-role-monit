@@ -1,7 +1,21 @@
 Ansible Role Monit
-==================
+###################
 
 |Build Status| |Ansible Galaxy| |GitHub issues| |Average time to resolve an issue| |Percentage of issues still open| |GitHub license|
+
+:Version: 0.0.1
+:Web: https://github.com/lapositiva/ansible-role-monit
+:Download: https://github.com/lapositiva/ansible-role-monit
+:Source: https://github.com/lapositiva/ansible-role-monit
+:Keywords: ansible, monit
+
+Ansible Role Monit
+
+.. contents:: Table of Contents:
+    :local:
+
+How To Use
+**********
 
 Install it with the following command:
 
@@ -9,28 +23,29 @@ Install it with the following command:
 
     $ ansible-galaxy install labpositiva.monit
 
-Requirements
-------------
-
-None
-
 Role Variables
---------------
+==============
 
 Here is the list of all variables and their default values:
 
-+--------+-----------+---------------+
-| Name   | Default   | Description   |
-+========+===========+===============+
-+--------+-----------+---------------+
+.. list-table::
+   :widths: 20 40 40
+   :header-rows: 1
+
+   * - Name
+     - Default
+     - Description
+   * - value
+     - Value
+     - Value
 
 Dependencies
-------------
+============
 
 none
 
 Example Playbook
-----------------
+================
 
 See the `examples <./examples/>`__ directory.
 
@@ -43,24 +58,61 @@ this:
       roles:
         - labpositiva.monit
 
+
+Developing
+**********
+
+Add code for changes
+
+Requirements
+============
+
+.. code-block::
+
+   $ make setup
+
+Setup
+=====
+
+.. code-block:: bash
+
+  λ cat .env-template > .env
+  λ make setup
+  λ make build
+  λ make up
+
+
+Environment
+===========
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Key
+     - Value
+   * - Key
+     - Value
+
+
 License
--------
+*******
 
 MIT
 
 Changelog
----------
+*********
 
 Please see `CHANGELOG <CHANGELOG.md>`__ for more information what has
 changed recently.
 
 Contributing
-------------
+************
 
 Please see `CONTRIBUTING <CONTRIBUTING.md>`__ for details.
 
 Credits
--------
+*******
 
 Made with :heart: :coffee: and :pizza: by `labpositiva <https://github.com/labpositiva>`__.
 
