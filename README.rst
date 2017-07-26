@@ -94,6 +94,32 @@ Environment
    * - Key
      - Value
 
+Others
+======
+
+Other commands for developing are written in Makefile:
+
+.. code-block:: bash
+
+  λ make
+    \{^_^}/ Commands
+      build                Build docker container by env
+      clean                clean Files compiled
+      documentation        Make Documentation
+      down                 remove containers docker by env
+      environment          Make environment for developer
+      env                  Show envs available
+      install              Install with var env Dependences
+      list                 List of current active services by env
+      lint                 Clean files unnecesary
+      test                 make test
+      up                   Up application by env
+      restart              Reload services
+      ssh                  Connect to container
+      stop                 stop containers docker by env
+      setup                Install dependences initial
+      verify_network       Verify network
+      help                 Show help text
 
 License
 *******
