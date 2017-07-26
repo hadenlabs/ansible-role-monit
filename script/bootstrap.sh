@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # -*- coding: utf-8 -*-
 
-export PROJECT_NAME=ansible-role-java
+export PROJECT_NAME=ansible-role-monit
 export PYTHON_VERSION=3.6.1
 export PYENV_NAME="${PROJECT_NAME}"
 
