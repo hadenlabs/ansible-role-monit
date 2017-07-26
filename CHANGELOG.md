@@ -8,8 +8,8 @@ This file uses change log convention from [Keep a CHANGELOG](http://keepachangel
 ## [0.0.1] - 2017-05-23
 
 
-[Unreleased]: https://github.com/hadenlabs/ansible-role-monit/compare/0.0.1...HEAD
-[0.0.1]: https://github.com/hadenlabs/ansible-role-monit/compare/0.0.0...0.0.1
+[Unreleased]: https://github.com/labpositiva/ansible-role-monit/compare/0.0.1...HEAD
+[0.0.1]: https://github.com/labpositiva/ansible-role-monit/compare/0.0.0...0.0.1
 
 [CHANGELOG.md]: CHANGELOG.md
 [CONTRIBUTING.md]: CONTRIBUTING.md

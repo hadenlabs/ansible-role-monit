@@ -1,5 +1,5 @@
 ---
-# defaults file for hadenlabs.monit
+# defaults file for labpositiva.monit
 
 # The number of seconds to determine if a process is down or not.
 monit_interval: 60
