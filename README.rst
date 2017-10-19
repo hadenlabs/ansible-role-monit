@@ -3,7 +3,7 @@ Ansible Role Monit
 
 |Build Status| |Ansible Galaxy| |GitHub issues| |Average time to resolve an issue| |Percentage of issues still open| |GitHub license|
 
-:Version: 0.0.1
+:Version: 0.0.2
 :Web: https://github.com/lapositiva/ansible-role-monit
 :Download: https://github.com/lapositiva/ansible-role-monit
 :Source: https://github.com/lapositiva/ansible-role-monit
