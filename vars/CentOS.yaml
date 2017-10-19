@@ -1,5 +1,5 @@
 ---
-# vars file for hadenlabs.monit (CentOS specific)
+# vars file for labpositiva.monit (CentOS specific)
 
 _monit_package_dependencies:
   - build-essential

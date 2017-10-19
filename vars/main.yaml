@@ -1,5 +1,5 @@
 ---
-# vars file for hadenlabs.monit
+# vars file for labpositiva.monit
 
 _monit_packages:
   - monit

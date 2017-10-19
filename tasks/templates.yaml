@@ -1,5 +1,5 @@
 ---
-# task for hadenlabs.monit
+# task for labpositiva.monit
 
 - name: copy templates
   template:

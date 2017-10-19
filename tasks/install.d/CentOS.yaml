@@ -1,5 +1,5 @@
 ---
-# tasks file for hadenlabs.monit (CentOS specific)
+# tasks file for labpositiva.monit (CentOS specific)
 
 - name: Install monit dependencies
   package:

@@ -1,5 +1,5 @@
 ---
-# task for hadenlabs.monit
+# task for labpositiva.monit
 
 - name: Create configs
   template: src=etc/monit/conf.d/base.conf.j2

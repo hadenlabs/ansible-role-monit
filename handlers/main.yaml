@@ -1,4 +1,4 @@
-# handlers for hadenlabs.monit
+# handlers for labpositiva.monit
 
 - name: Test monit and reload
   command: monit -t

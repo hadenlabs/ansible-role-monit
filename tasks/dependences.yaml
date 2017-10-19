@@ -1,6 +1,6 @@
 ---
 
-# task file for hadenlabs.monit
+# task file for labpositiva.monit
 
 - name: Install monit package dependencies
   become: yes
